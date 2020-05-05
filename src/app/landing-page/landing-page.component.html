@@ -12,17 +12,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      
-      <td>Nilesh Aggarwal</td>
-      <td>abc@gmail.com</td>
-      <td>9876543211</td>
-      <td>Bengaluru</td>
-      <td>9876543211</td>
+   
+    <tr *ngFor="let lead of lead_data">
+      <td>{{lead.firstName+" "+lead.lastName}}</td>
+      <td>{{lead.email}}</td>
+      <td>{{lead.mobile_num}}</td>
+      <td>{{lead.location_type}}</td>
+      <td>{{lead.location_string}}</td>
       <td>
-        <button type="button" class="btn btn-dark">Mark Update</button>
-        <button type="button" class="btn btn-dark">Delete</button>
-      </td>
+          <button type="button" class="btn btn-dark">Mark Update</button>
+          <button type="button" class="btn btn-dark">Delete</button>
+        </td>
     </tr>
    
   </tbody>
