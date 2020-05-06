@@ -4,10 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import {LandingPageService} from './landing-page/landing-page.service';
 const appRoutes: Routes = [
   
-  {path: '', component: LandingPageComponent}
+  {path: 'index', component: LandingPageComponent}
 ]
 
 @NgModule({
@@ -17,9 +18,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [LandingPageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
