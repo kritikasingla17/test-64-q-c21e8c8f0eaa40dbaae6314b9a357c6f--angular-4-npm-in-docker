@@ -37,6 +37,7 @@ export class LandingPageComponent implements OnInit {
     this.LandingPageService.addNewLead(this.new_lead).subscribe(
       data=>{console.log(data);
        $('#addLeadModal').modal('hide')
+       this.new_lead=""
     this.getLeadData();
         
       })
