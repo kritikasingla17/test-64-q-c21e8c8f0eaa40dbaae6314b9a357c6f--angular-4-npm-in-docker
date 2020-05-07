@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-dark add_lead_modal_btn" data-toggle="modal" data-target="#addLeadModal">Add Lead</button>
+<button type="button" class="btn btn-dark add_lead_modal_btn" (click)="showAddModal()">Add Lead</button>
 <table class="table leads_table">
   <thead class="thead-dark">
     <tr>
@@ -97,7 +97,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn " data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-dark add_lead_btn" >Save</button>
+              <button type="submit" class="btn btn-dark add_lead_btn" [disabled]="isValid()">Save</button>
             </div>
          </form>
       </div>

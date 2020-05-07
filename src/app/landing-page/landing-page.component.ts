@@ -12,9 +12,17 @@ declare var $: any
 export class LandingPageComponent implements OnInit {
   public lead_data;
   public lead_communication="";
-  public new_lead={};
+  public new_lead={
+    "first_name":null,
+    "last_name":null,
+    "email":null,
+    "mobile":null,
+    "location_type":null,
+    "location_string":null
+  };
   public updated_lead={};
   public lead_id;
+  public disabled;
   constructor(private LandingPageService:LandingPageService) { }
 
   ngOnInit() {
@@ -32,12 +40,29 @@ export class LandingPageComponent implements OnInit {
       this.lead_communication=data.communication;
 
     }
+    isValid=()=>{
+      if(this.new_lead['first_name']===null || this.new_lead['last_name']===null || this.new_lead['email']===null || this.new_lead['mobile']===null || this.new_lead['firstlocation_type_name']===null || this.new_lead['location_string']===null){
+        return true;
+      }
+      return false;
+    }
+    showAddModal=()=>{
+      $('#addLeadModal').modal();
+     
+    }
   
   addNewLead=()=>{
     this.LandingPageService.addNewLead(this.new_lead).subscribe(
       data=>{console.log(data);
        $('#addLeadModal').modal('hide')
-       this.new_lead=""
+       this.new_lead={
+        "first_name":null,
+        "last_name":null,
+        "email":null,
+        "mobile":null,
+        "location_type":null,
+        "location_string":null
+       }
     this.getLeadData();
         
       })
