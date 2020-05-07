@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {LandingPageService} from './landing-page/landing-page.service';
 const appRoutes: Routes = [
   
-  {path: 'index', component: LandingPageComponent}
+  {path: '', component: LandingPageComponent}
 ]
 
 @NgModule({
