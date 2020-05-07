@@ -78,7 +78,7 @@
                     <div class="form-group ">
                       <label for="exampleInputEmail1">Location Type</label>
                       <!-- <input type="text" [(ngModel)]="new_lead.location_type" required class="form-control" name="location_type" > -->
-                      <select class="custom-select" name="location_type" id="inputGroupSelect03" aria-label="Example select with button addon">
+                      <select class="custom-select" name="location_type"  [(ngModel)]="new_lead.location_type"id="inputGroupSelect03" aria-label="Example select with button addon">
                           <option selected>Country...</option>
                           
                         </select>
@@ -97,7 +97,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn " data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-dark" >Save</button>
+              <button type="submit" class="btn btn-dark add_lead_btn" >Save</button>
             </div>
          </form>
       </div>
@@ -157,11 +157,6 @@
         </div>
       </div>
   </div>
-
-
-
-
-
 
 
 
