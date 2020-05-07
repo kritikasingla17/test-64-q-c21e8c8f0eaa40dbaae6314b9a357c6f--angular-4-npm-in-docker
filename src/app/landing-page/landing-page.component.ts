@@ -9,12 +9,20 @@ import {LandingPageService} from './landing-page.service';
 })
 export class LandingPageComponent implements OnInit {
   public lead_data;
+  public lead_communication="";
+  public new_lead={};
   constructor(private LandingPageService:LandingPageService) { }
 
   ngOnInit() {
     this.getLeadData();
     this.lead_data=test_Data;
     // console.log(this.lead_data)
+  }
+
+  addNewLead=()=>{
+    this.LandingPageService.addNewLead(this.new_lead).subscribe(
+      data=>{console.log(data)}
+    )
   }
 
   getLeadData=()=>{
@@ -24,5 +32,12 @@ export class LandingPageComponent implements OnInit {
       ()=>{console.log('done loading lead details')}
     )
   }
+
+  updateLead=()=>{
+    console.log("update lead");
+    console.log(this.lead_communication);
+  }
+
+
 
 }

@@ -10,4 +10,9 @@ export class LandingPageService {
     return this.http.get('/api/leads/?location_string=India');
   }
 
+  addNewLead=(lead)=>{
+    console.log(lead)
+    return this.http.post("api/leads/",lead)
+  }
+
 }

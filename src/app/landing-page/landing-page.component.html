@@ -34,7 +34,7 @@
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
-          <form class="add_lead_form"  >
+          <form class="add_lead_form" (submit)="addNewLead()" >
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Add Lead</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -46,14 +46,14 @@
                         <div class="col">
                     <div class="form-group ">
                       <label for="exampleInputEmail1">First Name</label>
-                      <input type="text" required name="first_name"class="form-control"  >
+                      <input type="text" [(ngModel)]="new_lead.first_name" required name="first_name"class="form-control"  >
                     </div>
                     </div>
                     <div class="col">
 
                     <div class="form-group">
                       <label for="exampleInputPassword1">Last Name</label>
-                      <input type="text" required name="last_name"class="form-control" >
+                      <input type="text" [(ngModel)]="new_lead.last_name" required name="last_name"class="form-control" >
                     </div>
                     </div>
                     </div>
@@ -61,14 +61,14 @@
                         <div class="col">
                     <div class="form-group ">
                       <label for="exampleInputEmail1">Email Address</label>
-                      <input type="text" required class="form-control" name="email" >
+                      <input type="text" [(ngModel)]="new_lead.email" required class="form-control" name="email" >
                     </div>
                     </div>
                     <div class="col">
 
                     <div class="form-group">
                       <label for="exampleInputPassword1">Mobile</label>
-                      <input type="text" required name="mobile" class="form-control" >
+                      <input type="text" [(ngModel)]="new_lead.mobile" required name="mobile" class="form-control" >
                     </div>
                     </div>
                     </div>
@@ -76,14 +76,14 @@
                         <div class="col">
                     <div class="form-group ">
                       <label for="exampleInputEmail1">Location Type</label>
-                      <input type="text" required class="form-control" name="location_type" >
+                      <input type="text" [(ngModel)]="new_lead.location_type" required class="form-control" name="location_type" >
                     </div>
                     </div>
                     <div class="col">
 
                     <div class="form-group">
                       <label for="exampleInputPassword1">Location String</label>
-                      <input type="text" required class="form-control" name="location_string">
+                      <input type="text" [(ngModel)]="new_lead.location_string" required class="form-control" name="location_string">
                     </div>
                     </div>
                     </div>
@@ -92,7 +92,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn " data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-dark"  >Save</button>
+              <button type="submit" class="btn btn-dark" >Save</button>
             </div>
          </form>
       </div>
@@ -110,7 +110,7 @@
   <div class="modal fade bd-example1-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form class="update_lead_form">
+            <form class="update_lead_form" (submit)="updateLead()">
 
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Mark Communication</h5>
@@ -121,12 +121,12 @@
           <div class="modal-body">
               <div class="form-group ">
                   <label for="exampleInputEmail1">Communication</label>
-                  <textarea class="form-control"  name="communication"></textarea>
+                  <textarea class="form-control" [(ngModel)]="lead_communication"  name="communication"></textarea>
                 </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn " data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-dark update_lead_btn">Save</button>
+            <button type="submit" class="btn btn-dark update_lead_btn">Save</button>
           </div>
         </form>
 
