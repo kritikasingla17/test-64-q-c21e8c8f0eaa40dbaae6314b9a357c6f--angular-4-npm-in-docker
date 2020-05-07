@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-dark add_lead_modal_btn" data-toggle="modal" data-target=".bd-example-modal-lg">Add Lead</button>
+<button type="button" class="btn btn-dark add_lead_modal_btn" data-toggle="modal" data-target="#addLeadModal">Add Lead</button>
 <table class="table leads_table">
   <thead class="thead-dark">
     <tr>
@@ -20,18 +20,19 @@
       <td>{{lead.location_type}}</td>
       <td>{{lead.location_string}}</td>
       <td>
-          <button type="button" class="btn btn-dark update_lead_modal_btn" data-toggle="modal" data-target=".bd-example1-modal-lg">Mark Update</button>
-          <button type="button" class="btn btn-dark delete_lead_modal_btn" data-toggle="modal" data-target=".bd-example2-modal-sm">Delete</button>
+          <button type="button" class="btn btn-dark update_lead_modal_btn" data-toggle="modal" data-target="#updateLeadModal">Mark Update</button>
+          
+          <button type="button" class="btn btn-dark delete_lead_modal_btn" (click)="showDeleteModal(lead.id)" >Delete</button>
         </td>
     </tr>
    
-  </tbody>
+  </tbody> 
 </table>
 
 
 
 <!-- Add Lead  modal -->
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="addLeadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
           <form class="add_lead_form" (submit)="addNewLead()" >
@@ -107,7 +108,7 @@
 
 
   <!-- ADD MARK UPDATE MODAL-->
-  <div class="modal fade bd-example1-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade " id="updateLeadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <form class="update_lead_form" (submit)="updateLead()">
@@ -137,10 +138,10 @@
 
 
   <!--add DELETE LEAD MODAL-->
-  <div class="modal fade bd-example2-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade " id="deleteLeadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form class="delete_lead_form">
+            <form class="delete_lead_form" (submit)='deleteLead()'>
 
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Do you wish to delete this lead?</h5>
@@ -149,10 +150,22 @@
             </button>
           </div>
           <div class="modal-footer ">
-              <button type="button" class="btn btn-danger delete_lead_btn"  >Delete</button>
+              <button type="submit" class="btn btn-danger delete_lead_btn"  >Delete</button>
               <button type="button" class="btn btn-dark " data-dismiss="modal">Cancel</button>
           </div>
           </form>
         </div>
       </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+ 

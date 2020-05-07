@@ -15,4 +15,8 @@ export class LandingPageService {
     return this.http.post("api/leads/",lead)
   }
 
+  deleteLead=(id)=>{
+    return this.http.delete(`api/leads/${id}/`);
+  }
+
 }
