@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import test_Data from '../../assets/data.js';
+// import test_Data from '../../assets/data.js';
 import {LandingPageService} from './landing-page.service';
 /// <reference path ="../../node_modules/@types/jquery/index.d.ts"/>
 declare var $: any 
@@ -13,12 +13,13 @@ export class LandingPageComponent implements OnInit {
   public lead_data;
   public lead_communication="";
   public new_lead={};
+  public updated_lead={};
   public lead_id;
   constructor(private LandingPageService:LandingPageService) { }
 
   ngOnInit() {
     this.getLeadData();
-    this.lead_data=test_Data;
+    // this.lead_data=test_Data;
   }
    showDeleteModal=(data)=>
     {
@@ -26,10 +27,9 @@ export class LandingPageComponent implements OnInit {
       $("#deleteLeadModal").modal(); 
     }
     showUpdateModal=(data)=>{
-      console.log(data);
       $('#updateLeadModal').modal();
+      this.updated_lead=data;
       this.lead_communication=data.communication;
-      this.lead_id=data.id;
 
     }
   
@@ -37,6 +37,7 @@ export class LandingPageComponent implements OnInit {
     this.LandingPageService.addNewLead(this.new_lead).subscribe(
       data=>{console.log(data);
        $('#addLeadModal').modal('hide')
+    this.getLeadData();
         
       })
 
@@ -47,7 +48,9 @@ export class LandingPageComponent implements OnInit {
     this.LandingPageService.deleteLead(this.lead_id).subscribe(
       data=>{
         console.log(data);
-        $('#deleteLeadModal').modal('hide')
+        $('#deleteLeadModal').modal('hide');
+        this.getLeadData();
+
 
       }
     )
@@ -63,14 +66,17 @@ export class LandingPageComponent implements OnInit {
 
   updateLead=()=>{
     console.log("update lead");
-    console.log(this.lead_communication);
-    this.LandingPageService.updateLead(this.lead_id,this.lead_communication).subscribe(
-      data=>{
-        console.log(data);
-        $('#updateLeadModal').modal('hide')
+      this.updated_lead['communication']=this.lead_communication
+      console.log(this.updated_lead);
+      this.LandingPageService.updateLead(this.updated_lead).subscribe(
+        data=>{
+          console.log(data);
+          $('#updateLeadModal').modal('hide');
+          this.getLeadData();
 
-      }
-    )
+
+        }
+      )
   }
 
 
