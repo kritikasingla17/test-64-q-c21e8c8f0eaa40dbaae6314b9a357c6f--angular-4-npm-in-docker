@@ -19,4 +19,8 @@ export class LandingPageService {
     return this.http.delete(`api/leads/${id}/`);
   }
 
+  updateLead=(id,communication)=>{
+    return this.http.put(`api/mark_lead/${id}`,communication);
+  }
+
 }

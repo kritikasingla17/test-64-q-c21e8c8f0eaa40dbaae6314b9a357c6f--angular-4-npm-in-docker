@@ -17,6 +17,16 @@ export default[
         mobile:"9592242739",
         location_type:"Benaguluru",
         location_string:"India",
-        communication:"good lead"
+        communication:"good lead1"
+    },
+    {
+        id:3,
+        first_name:"Malvika",
+        last_name:"Singh",
+        email:"smalvika93@gmail.com",
+        mobile:"8198078070",
+        location_type:"Benaguluru",
+        location_string:"India",
+        communication:""
     }
 ]

@@ -13,7 +13,7 @@ export class LandingPageComponent implements OnInit {
   public lead_data;
   public lead_communication="";
   public new_lead={};
-  public delete_lead_id;
+  public lead_id;
   constructor(private LandingPageService:LandingPageService) { }
 
   ngOnInit() {
@@ -22,8 +22,15 @@ export class LandingPageComponent implements OnInit {
   }
    showDeleteModal=(data)=>
     {
-      this.delete_lead_id=data;
+      this.lead_id=data;
       $("#deleteLeadModal").modal(); 
+    }
+    showUpdateModal=(data)=>{
+      console.log(data);
+      $('#updateLeadModal').modal();
+      this.lead_communication=data.communication;
+      this.lead_id=data.id;
+
     }
   
   addNewLead=()=>{
@@ -36,8 +43,8 @@ export class LandingPageComponent implements OnInit {
   }
 
    deleteLead=()=>{
-    console.log("del",this.delete_lead_id);
-    this.LandingPageService.deleteLead(this.delete_lead_id).subscribe(
+    console.log("del",this.lead_id);
+    this.LandingPageService.deleteLead(this.lead_id).subscribe(
       data=>{
         console.log(data);
         $('#deleteLeadModal').modal('hide')
@@ -57,6 +64,13 @@ export class LandingPageComponent implements OnInit {
   updateLead=()=>{
     console.log("update lead");
     console.log(this.lead_communication);
+    this.LandingPageService.updateLead(this.lead_id,this.lead_communication).subscribe(
+      data=>{
+        console.log(data);
+        $('#updateLeadModal').modal('hide')
+
+      }
+    )
   }
 
 

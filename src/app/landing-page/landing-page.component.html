@@ -20,7 +20,7 @@
       <td>{{lead.location_type}}</td>
       <td>{{lead.location_string}}</td>
       <td>
-          <button type="button" class="btn btn-dark update_lead_modal_btn" data-toggle="modal" data-target="#updateLeadModal">Mark Update</button>
+          <button type="button" class="btn btn-dark update_lead_modal_btn" (click)="showUpdateModal(lead)">Mark Update</button>
           
           <button type="button" class="btn btn-dark delete_lead_modal_btn" (click)="showDeleteModal(lead.id)" >Delete</button>
         </td>
@@ -99,10 +99,6 @@
       </div>
     </div>
   </div>
-
-
-
-
 
 
 
